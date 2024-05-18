@@ -5,6 +5,8 @@ import { useState, useTransition } from "react";
 import { useSearchParams } from "next/navigation";
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
+import Link from "next/link";
+
 import { LoginSchema } from "@/schemas";
 import { Input } from "@/components/ui/input";
 
@@ -48,9 +50,9 @@ export const LoginForm = () => {
                     if (!data) {
                         throw new Error('No response data from login attempt');
                     }
-                    setError(data.error || 'Unknown error');
+                    setError(data?.error);
                     // Add when we do 2FA
-                    setSuccess(data.success || '');
+                    setSuccess(data?.success);
                 })
                 .catch(error => {
                     console.error('Error during login:', error);
@@ -104,6 +106,16 @@ export const LoginForm = () => {
                                         type="password"
                                         />
                                     </FormControl>
+                                    <Button
+                                        size="sm"
+                                        variant="link"
+                                        asChild
+                                        className="px-0 font-normal"
+                                    >   
+                                        <Link href="/auth/reset">
+                                            Forgot password?
+                                        </Link>
+                                    </Button>
                                     <FormMessage/>
                                 </FormItem>
                             )}
