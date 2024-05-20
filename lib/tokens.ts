@@ -8,8 +8,7 @@ import { getTwoFactorTokenByEmail } from "@/data/two-factor-token";
 
 export const generateTwoFactorToken = async (email: string) => {
     const token = crypto.randomInt(100_000, 1_000_000).toString();
-    // Time in ms, 900 = 15 * 60 seconds * 1000 for ms
-    const expires = new Date(new Date().getTime() + 900 * 1000);
+    const expires = new Date(new Date().getTime() + 300 * 1000);
 
     const existingToken = await getTwoFactorTokenByEmail(email);
 
