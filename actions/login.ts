@@ -20,7 +20,7 @@ export const login = async (values: z.infer<typeof LoginSchema>) => {
     }
 
     const { email, password, code } = validatedFields.data;
-
+    
     const existingUser = await getUserByEmail(email);
 
     if (!existingUser || !existingUser.email || !existingUser.password) {
