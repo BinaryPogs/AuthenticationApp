@@ -7,8 +7,8 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Next Auth Demo for my learning",
-  description: "We're gonna be rich!",
+  title: "Knotify Payments",
+  description: "Get full payment immediately while allowing couples to pay in low interest over 36 months. Join the waitlist today to get exclusive benefits!",
 };
 
 export default async function RootLayout({
